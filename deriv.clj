@@ -38,22 +38,25 @@
   (and (seq? x) (= (first x) '*)))
 
 (defn addend 
-  [[op addend augend]]
+  [[op addend & augend]]
     addend)
 
 (defn augend
-  [[op addend augend]]
-    augend)
+  [[op addend & augend]] 
+  (if (next augend)
+    (conj augend '+)
+    (first augend)))
 
 (defn multiplier 
-  [x]
-  (let [[op multiplier multiplicand & xs] x]
-    multiplier))
+  [[op multiplier & multiplicand]]
+    multiplier)
 
 (defn multiplicand
-  [x]
-  (let [[op multiplier multiplicand & xs] x]
-    multiplicand))
+  [[op multiplier & multiplicand]]
+  (if (next multiplicand)
+    (conj multiplicand '*)
+    (first multiplicand)))
+
 
 (defn exponentiation? 
   [x]
