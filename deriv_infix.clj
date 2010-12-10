@@ -2,8 +2,8 @@
 ; Lecture 3B of SICP
 
 ; Its really amazing how powerful it was to separate the derivative rules from
-; the representation of the expressions. It made it so easy to change
-; represenations. Really worth grokking. 
+; the representation of the expressions (constructors, selectors, and
+; predicates) . It made it so easy to change represenations. Really worth grokking. 
 
 (ns deriv-infix)
 
